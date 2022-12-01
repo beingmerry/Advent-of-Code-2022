@@ -4,10 +4,9 @@ My attempt at doing all the challenges in the advent of code 2022
 
 See directory for instructions
 
-✨ Started  | 2022-12-01 15:46
-
-🎯 Finished | 
-
-⭐ 1st Star | ❌ No
-
-⭐ 2nd Star | ❌ No
+| Stats        | Value               |
+| -----------  | -----------         |
+| 🎯 Started   | 2022-12-01 15:46 ET |
+| ✅ Finished  | 2022-12-01 ??:?? ET |
+| ⭐ Star 1   | ❌ No              |
+| ✨ Star 2   | ❌ No              |
