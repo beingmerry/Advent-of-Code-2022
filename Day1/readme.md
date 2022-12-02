@@ -1,3 +1,7 @@
+## Solution
+
+🎯🏗️ Link to github web page will go here!!
+
 ## URL
 
 https://adventofcode.com/2022/day/1

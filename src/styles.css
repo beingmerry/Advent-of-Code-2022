@@ -1,0 +1,285 @@
+:root {
+  --red: #b41d1d;
+  --red-2: #b41d1d;
+  --red-dark-shade: #9b181d;
+  --black: #222;
+  --green: #024c46;
+  --green-2: #507524;
+  --green-3: #578521;
+  --gold: #bea35c;
+  --gold-dark: #ae9145;
+  --beige: #f2e7d1;
+  --beige-dark-shade: #dfceab;
+  --blue-dark: #404148;
+  --blue: #5cb9be;
+}
+header {
+  border-bottom: black 1px solid;
+}
+body {
+  background: #fff;
+  font-family: "Castoro", sans-serif;
+  padding: 2%;
+  background: url("https://assets.codepen.io/567707/background-snowlake.jpg") bottom center/cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+footer {
+  border-top: black solid 1px;
+  text-align: center;
+  margin: 2em auto 4em;
+  width: 100%;
+}
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.01%;
+  position: relative;
+  padding: 0 2rem;
+  margin: 2rem auto 0;
+  max-width: 70rem;
+}
+@media (min-width: 40rem) {
+  main {
+    grid-template-columns: repeat(12, 1fr);
+    /* margin-top: 8rem; */
+  }
+  main .square:nth-child(1) {
+    grid-column: 6/8;
+  }
+  main .square:nth-child(2) {
+    grid-row: 2;
+    grid-column: 5/7;
+  }
+  main .square:nth-child(3) {
+    grid-row: 2;
+    grid-column: 7/9;
+  }
+  main .square:nth-child(4) {
+    grid-row: 3;
+    grid-column: 4/6;
+  }
+  main .square:nth-child(5) {
+    grid-row: 3;
+    grid-column: 6/8;
+  }
+  main .square:nth-child(6) {
+    grid-row: 3;
+    grid-column: 8/10;
+  }
+  main .square:nth-child(7) {
+    grid-row: 4;
+    grid-column: 3/5;
+  }
+  main .square:nth-child(8) {
+    grid-row: 4;
+    grid-column: 5/7;
+  }
+  main .square:nth-child(9) {
+    grid-row: 4;
+    grid-column: 7/9;
+  }
+  main .square:nth-child(10) {
+    grid-row: 4;
+    grid-column: 9/11;
+  }
+  main .square:nth-child(11) {
+    grid-row: 5;
+    grid-column: 2/4;
+  }
+  main .square:nth-child(12) {
+    grid-row: 5;
+    grid-column: 4/6;
+  }
+  main .square:nth-child(13) {
+    grid-row: 5;
+    grid-column: 6/8;
+  }
+  main .square:nth-child(14) {
+    grid-row: 5;
+    grid-column: 8/10;
+  }
+  main .square:nth-child(15) {
+    grid-row: 5;
+    grid-column: 10/12;
+  }
+  main .square:nth-child(16) {
+    grid-row: 6;
+    grid-column: 1/3;
+  }
+  main .square:nth-child(17) {
+    grid-row: 6;
+    grid-column: 3/5;
+  }
+  main .square:nth-child(18) {
+    grid-row: 6;
+    grid-column: 5/7;
+  }
+  main .square:nth-child(19) {
+    grid-row: 6;
+    grid-column: 7/9;
+  }
+  main .square:nth-child(20) {
+    grid-row: 6;
+    grid-column: 9/11;
+  }
+  main .square:nth-child(21) {
+    grid-row: 6;
+    grid-column: 11/13;
+  }
+  main .square:nth-child(22) {
+    grid-row: 7;
+    grid-column: 4/6;
+  }
+  main .square:nth-child(23) {
+    grid-row: 7;
+    grid-column: 6/8;
+  }
+  main .square:nth-child(24) {
+    grid-row: 7;
+    grid-column: 8/10;
+  }
+}
+@media (min-width: 55rem) {
+  main {
+    padding: 0 5rem;
+  }
+}
+
+.square {
+  background: #999;
+  width: 100%;
+  height: 100%;
+  min-width: 4rem;
+  border-radius: 3px;
+  border: 2px solid var(--black);
+  box-shadow: inset -7px 0 9px -7px rgba(0, 0, 0, 0.4), inset 0 -7px 9px -7px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+@media (min-width: 40rem) {
+  .square {
+    grid-column: span 2;
+  }
+}
+.square span {
+  font-family: Ultra, serif;
+  font-size: clamp(0.8rem, 5vw, 1.8rem);
+  display: flex;
+  background: var(--red);
+  color: var(--beige);
+  box-shadow: 0 0 0 1px var(--beige), 0 0 0 4px var(--red);
+  width: 50%;
+  height: 50%;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0.4rem);
+}
+@media (min-width: 40rem) {
+  .square span {
+    font-size: 1.8rem;
+    transform: translateY(0.75rem);
+  }
+}
+@media (min-width: 55rem) {
+  .square span {
+    font-size: clamp(1.2rem, 5.3vw, 2rem);
+  }
+}
+.square:before {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+/* this changes color of top circle */
+.square:after {
+  content: "🎯";
+  text-align: center;
+  border-radius: 0 0 5rem 5rem;
+  width: 40%;
+  height: 20%;
+  background: linear-gradient(var(--black), rgb(34, 34, 34));
+  position: absolute;
+  top: 0;
+}
+.square.todo:after  {
+  content: "🏗️";
+  text-align: center;
+  border-radius: 0 0 5rem 5rem;
+  width: 40%;
+  height: 20%;
+  background: linear-gradient(rgb(255, 255, 135), rgb(105, 105, 105));
+  position: absolute;
+  top: 0;
+}
+
+.square.solved:after  {
+  content: "✅";
+  text-align: center;
+  border-radius: 0 0 5rem 5rem;
+  width: 40%;
+  height: 20%;
+  background: linear-gradient(rgb(105, 255, 105), rgb(255, 169, 169));
+  position: absolute;
+  top: 0;
+}
+
+.square:nth-child(2), .square:nth-child(10), .square:nth-child(18) {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.4) 1rem, rgba(209, 209, 209, 0.3) 1rem), linear-gradient(to bottom, #ffa4a4 1rem, #c53f3f 1rem);
+  background-size: 2rem 2rem;
+  background-repeat: repeat;
+}
+.square:nth-child(3), .square:nth-child(11), .square:nth-child(19) {
+  background: var(--green-2);
+  background-image: radial-gradient(#fff 15%, transparent 18%), radial-gradient(#fff 15%, transparent 18%);
+  background-size: 16px 16px;
+  background-position: 4px 4px, 12px 12px;
+}
+.square:nth-child(5), .square:nth-child(13), .square:nth-child(21) {
+  background: #fff;
+  background-image: linear-gradient(to right, transparent 30%, var(--gold) 30%, var(--gold) 45%, transparent 45%, transparent 55%, var(--gold) 55%, var(--gold) 62%, transparent 62%, transparent 70%, var(--gold) 70%, var(--gold) 78%, transparent 78%, transparent 85%, var(--gold) 85%);
+  background-size: 26px;
+  background-position: 4px;
+}
+.square:nth-child(6), .square:nth-child(14), .square:nth-child(22) {
+  background: var(--blue);
+  background-image: repeating-linear-gradient(-45deg, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 70%, transparent 70%);
+  background-size: 30% 30%;
+  background-position: -40px, -40px;
+}
+.square:nth-child(7), .square:nth-child(15), .square:nth-child(23) {
+  background-color: #8bc34a;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 4px, #fff 4px, #fff 20px, transparent 20px, transparent 26px), repeating-linear-gradient(-45deg, transparent, transparent 4px, #fff 4px, #fff 20px, transparent 20px, transparent 26px);
+  background-size: 100%;
+  background-position: 0;
+}
+.square:nth-child(8n) {
+  background: var(--red);
+  background-image: linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.1) 60%, var(--gold) 60%, var(--gold-dark) 80%, rgba(0, 0, 0, 0.1) 80%, transparent 85%), linear-gradient(to right, transparent 20%, rgba(0, 0, 0, 0.1) 25%, var(--gold) 25%, var(--gold-dark) 45%, rgba(0, 0, 0, 0.1) 45%, transparent 50%);
+  background-size: 100%;
+  background-position: 0;
+}
+.square:nth-child(16) {
+  background: var(--blue-dark);
+  background-image: linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.1) 60%, var(--beige) 60%, var(--beige-dark-shade) 80%, rgba(0, 0, 0, 0.1) 80%, transparent 85%), linear-gradient(to right, transparent 20%, rgba(0, 0, 0, 0.1) 25%, var(--beige) 25%, var(--beige-dark-shade) 45%, rgba(0, 0, 0, 0.1) 45%, transparent 50%);
+  background-size: 100%;
+  background-position: 0;
+}
+.square:nth-child(10), .square:nth-child(23) {
+  background-color: var(--green);
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, white 5px, white 12px, transparent 12px, transparent 19px);
+  background-size: 100%;
+  background-position: 0;
+}
+.square:nth-child(1), .square:nth-child(9), .square:nth-child(17) {
+  background: url(https://assets.codepen.io/567707/background-xmas-pattern.jpg) 10% center/200% 200%;
+}
+.square:nth-child(4), .square:nth-child(12), .square:nth-child(20) {
+  background: url(https://assets.codepen.io/567707/background-xmas-pattern-2.jpg) center center/cover;
+}

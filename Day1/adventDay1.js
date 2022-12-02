@@ -42,5 +42,19 @@ reader.addEventListener('load', () => {
     sortedItem.textContent = listItem
     sortedList.appendChild(sortedItem)
   })
-  solution.textContent = sortedElfCals[0]
+  const solutionSecondStar =
+    sortedElfCals[0] + sortedElfCals[1] + sortedElfCals[2]
+  solution.textContent = `⭐ Answer 1 = ${sortedElfCals[0]} | ✨ Answer 2 = ${solutionSecondStar}`
 })
+var coll = document.getElementsByClassName("collapsible");
+for (let i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", () => {
+    coll[i].classList.toggle("active");
+    const content = coll[i].nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+} 
