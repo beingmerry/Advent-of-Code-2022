@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Read Text File</title>
-    </head>
-    <body>
-        <input type="file" id="fileInput" src="./input" >
-        <script type="text/javascript" src="./adventDay1.js"></script>
-    </body>
+
+<head>
+    <link rel="stylesheet" href="adventDay1,css">
+    <title>Day 1 : Calorie Counting</title>
+</head>
+
+<body>
+    <header>
+        <h1>Day 1 : Calorie Counting</h1>
+    </header>
+    <section>
+        <label><strong>1.</strong> Please select <strong>input</strong> file...</label>
+        <input type="file" id="file-input" src="./input">
+        <strong> 2.</strong> Press Start once file is selected...
+        <button type="button" id="start-button">Start</button>
+    </section>
+    <div>
+        <h1>Solution</h1>
+        <h2 id="solution"><!-- Solution Here  --></h2>
+        <h1>Sorted Goes here</h1>
+        <ol id="sorted-list">
+            <!-- Sorted groups goes here  -->
+        </ol>
+        <h1>Grouped Goes here</h1>
+        <ol id="grouped-list">
+            <!-- Grouped inputs goes here  -->
+        </ol>
+        <h1>Input Goes here</h1>
+        <ol id="input-list">
+            <!-- Raw input goes here  -->
+        </ol>
+    </div>
+    <script type="text/javascript" src="./adventDay1.js"></script>
+
+</body>
+
 </html>
