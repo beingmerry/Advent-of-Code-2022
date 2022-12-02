@@ -1,6 +1,5 @@
 const reader = new FileReader()
 
-
 // move all these globals to a globals.js file, clean up so that this is ONLY solution related
 // potentially split into multiple files, solution.js, global.js, visual.js
 const fileInput = document.getElementById('file-input')
@@ -16,6 +15,33 @@ const instructions = document.getElementsByClassName('instructions')
 
 let file = 'Select a file with the HTML element!'
 
+const scoreRockPaperScissors = (firstLetter, secondLetter) => {
+  debugger
+  let score = 0;
+  let gameStateOpponent = "";
+  let gameStateYou = "";
+  switch(secondLetter) {
+      case 'X':  // Rock = 1 (for X)
+        score += 1
+        gameStateYou = "Rock"
+        break
+      case 'Y':  // Paper = 2 (for Y)
+        score += 2
+        gameStateYou = "Paper"
+        break
+      case 'Z': // Paper = 3 (for Y)
+        score += 3
+        gameStateYou = "Scissors"
+        break
+    }
+    const resultsObj = {
+      score: score, 
+      gameStateOpponent: gameStateOpponent, 
+      gameStateYou: gameStateYou
+    }
+    return resultsObj
+}
+
 startButton.addEventListener('click', () => {
   processing.textContent = '⌛ Processing...'
   file = fileInput.files[0]
@@ -26,13 +52,19 @@ reader.addEventListener('load', () => {
   data = reader.result
   mappedData = data.split('\n')
   // let elfCals = []
-  // let elfCalsIndex = 0
+  // let elfCalsIndex = 0 let count
+  let count = 0
   for (let i = 0; i < mappedData.length; i++) {
-    let currentLine = mappedData[i]
+    const currentLine = mappedData[i]
     const inputListItem = document.createElement('li')
-    inputListItem.textContent = cals
+    const [firstLetter, secondLetter] = currentLine.split(' ')
+    
+    inputListItem.textContent = `${firstLetter} ${secondLetter}`
     inputList.appendChild(inputListItem)
     // 🎯 Need to re write this loop to sort # of A, B, C... and X, Y, Z
+    const resultsObj = scoreRockPaperScissors(firstLetter, secondLetter)
+
+    
     // if (isNaN(cals)) {
     //   const groupedItem = document.createElement('li')
     //   groupedItem.textContent = elfCals[elfCalsIndex]
