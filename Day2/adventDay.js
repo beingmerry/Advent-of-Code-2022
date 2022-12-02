@@ -1,5 +1,8 @@
 const reader = new FileReader()
 
+
+// move all these globals to a globals.js file, clean up so that this is ONLY solution related
+// potentially split into multiple files, solution.js, global.js, visual.js
 const fileInput = document.getElementById('file-input')
 const startButton = document.getElementById('start-button')
 const inputList = document.getElementById('input-list')
@@ -22,8 +25,8 @@ startButton.addEventListener('click', () => {
 reader.addEventListener('load', () => {
   data = reader.result
   mappedData = data.split('\n')
-  let elfCals = []
-  let elfCalsIndex = 0
+  // let elfCals = []
+  // let elfCalsIndex = 0
   for (let i = 0; i < mappedData.length; i++) {
     let currentLine = mappedData[i]
     const inputListItem = document.createElement('li')
