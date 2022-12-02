@@ -8,7 +8,7 @@ My attempt at doing all the challenges in the advent of code 2022
 | ⭐ Star 1   | ✅ Yes, 12-01, 21:19  | 
 | ✨ Star 2   | ✅ Yes, 12-01, 23:25  |
 
-## Day 2: Calorie Counting
+## Day 2: Rock Paper Scissors
 | Stats       | Value                 |
 | :---------: | :-----------:         |
 | 🎯 Started  | 2022-12-02 00:22 ET   |
