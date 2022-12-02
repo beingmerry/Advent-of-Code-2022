@@ -19,30 +19,37 @@
         <input type="file" id="file-input" src="./input">
         <strong> 2.</strong> Press Start once file is selected...
         <button type="button" id="start-button">Start</button>
+        <p id="processing"></p>
     </section>
     <div>
         <h1>Solution</h1>
-        <h2 id="solution"><!-- Solution Here  --></h2>
         <button type="button" class="collapsible">Solution</button>
         <div class="content">
-          <p>Lorem ipsum...</p>
+            <h2 id="solution"><!-- Solution Here  --></h2>
         </div> 
-        <h1>Sorted Goes here</h1>
-        <ol id="sorted-list">
-            <!-- Sorted groups goes here  -->
-        </ol>
-        <h1>Grouped Goes here</h1>
-        <ol id="grouped-list">
-            <!-- Grouped inputs goes here  -->
-        </ol>
-        <h1>Input Goes here</h1>
-        
-        <ol id="input-list">
-            <!-- Raw input goes here  -->
-        </ol>
+        <h1>Sorted Data</h1>
+        <button type="button" class="collapsible">Sorted Data (High -> Low)</button>
+        <div class="content">
+            <ol id="sorted-list">
+                <!-- Sorted groups goes here  -->
+            </ol>
+        </div> 
+
+        <h1>Grouped Data</h1>
+        <button type="button" class="collapsible">Grouped Data</button>
+        <div class="content">
+            <ol id="grouped-list">
+                <!-- Grouped inputs goes here  -->
+            </ol>
+        </div> 
+        <h1>Input Data</h1>
+        <button type="button" class="collapsible">Raw Input Data</button>
+        <div class="content">
+            <ol id="input-list">
+                <!-- Raw input goes here  -->
+            </ol>
+        </div> 
     </div>
     <script type="text/javascript" src="./adventDay1.js"></script>
-
 </body>
-
 </html>

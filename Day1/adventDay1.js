@@ -6,10 +6,15 @@ const inputList = document.getElementById('input-list')
 const groupedList = document.getElementById('grouped-list')
 const sortedList = document.getElementById('sorted-list')
 const solution = document.getElementById('solution')
+const processing = document.getElementById('processing')
+const coll = document.getElementsByClassName("collapsible");
+
+const instructions = document.getElementsByClassName('instructions')
 
 let file = 'Select a file with the HTML element!'
 
 startButton.addEventListener('click', () => {
+  processing.textContent="⌛ Processing..."
   file = fileInput.files[0]
   reader.readAsText(file)
 })
@@ -45,8 +50,9 @@ reader.addEventListener('load', () => {
   const solutionSecondStar =
     sortedElfCals[0] + sortedElfCals[1] + sortedElfCals[2]
   solution.textContent = `⭐ Answer 1 = ${sortedElfCals[0]} | ✨ Answer 2 = ${solutionSecondStar}`
+  processing.textContent="✅ Done! (does not guarantee a correct solution)"
 })
-var coll = document.getElementsByClassName("collapsible");
+
 for (let i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", () => {
     coll[i].classList.toggle("active");
