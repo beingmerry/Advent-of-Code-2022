@@ -1,6 +1,6 @@
 ## Solution
 
-🎯🏗️ Link to github web page will go here!!
+https://beingmerry.github.io/Advent-of-Code-2022/Day1/adventDay1.html
 
 ## URL
 
