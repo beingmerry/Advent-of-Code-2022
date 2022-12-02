@@ -7,6 +7,6 @@ See directory for instructions
 | Stats       | Value                 |
 | :---------: | :-----------:         |
 | 🎯 Started  | 2022-12-01 15:46 ET   |
-| ✅ Finished | 2022-12-01 ??:?? ET   |
+| ✅ Finished | 2022-12-01 23:25 ET   |
 | ⭐ Star 1   | ✅ Yes, 12-01, 21:19  | 
-| ✨ Star 2   | ❌ No                 |
+| ✨ Star 2   | ✅ Yes, 12-01, 23:25  |
