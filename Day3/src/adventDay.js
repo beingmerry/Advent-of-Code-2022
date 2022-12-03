@@ -25,19 +25,20 @@ reader.addEventListener('load', () => {
   mappedData = data.split('\n')
   let totalFirstStarScore = 0
   let totalSecondStarScore = 0
-  for (let i = 0; i < mappedData.length - 1; i++) {
+  for (let i = 0; i < mappedData.length; i++) {
     const currentLine = mappedData[i]
     const inputListItem = document.createElement('li')
-    const [firstLetter, secondLetter] = currentLine.split(' ')
-    inputListItem.textContent = `${firstLetter} ${secondLetter}`
+    const currentleLineSplit = currentLine.split('')
+    debugger
+    inputListItem.textContent = `${currentleLineSplit.join(" ")}`
     inputList.appendChild(inputListItem)
-    const results = gameLoop(firstLetter, secondLetter)
-    totalFirstStarScore += results.gameStarOne
-    totalSecondStarScore += results.gameStarTwo
+    // const results = gameLoop(firstLetter, secondLetter)
+    // totalFirstStarScore += results.gameStarOne
+    // totalSecondStarScore += results.gameStarTwo
   }
-  const solutionFirstStar = totalFirstStarScore
-  const solutionSecondStar = totalSecondStarScore
-  solution.textContent = `⭐ Answer 1 = ${solutionFirstStar} | ✨ Answer 2 = ${solutionSecondStar}`
+  // const solutionFirstStar = totalFirstStarScore
+  // const solutionSecondStar = totalSecondStarScore
+  // solution.textContent = `⭐ Answer 1 = ${solutionFirstStar} | ✨ Answer 2 = ${solutionSecondStar}`
   processing.textContent = '✅ Done! (does not guarantee a correct solution)'
 })
 // <-------------------------------------------------------------------------------->
