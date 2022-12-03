@@ -2,22 +2,22 @@
 <html>
 <!--            🏗️🏗️🏗️ Not started yet! 🏗️🏗️🏗️ 1:58p -->
 <head>
-    <link rel="stylesheet" href="adventDay.css">
+    <link rel="stylesheet" href="./src/adventDay.css">
     <!-- Modify to be dynamic by assigning on page load (any 2 value things...) -->
-    <title id="title">Day 2 - Rock Paper Scissors</title>
+    <title id="title">Day 3 - Rucksack Reorganization</title>
 </head>
 
 <body>
     <header>
-        <h1 id="page-header text">Day 2 - Rock Paper Scissors</h1>
+        <h1 id="page-header text">Day 3 - Rucksack Reorganization</h1>
     </header>
     <section>
         <div>
             <a href="../index.html">🏠 Home</a>
-            <a href="./README.md">❓ Day 2 Readme.md</a>
+            <a href="./README.md">❓ Day 3 Readme.md</a>
         </div>
         <label><strong>1.</strong> Please select <strong>input</strong> file...</label>
-        <input type="file" id="file-input" src="./input">
+        <input type="file" id="file-input"> <!-- Could load data into local storage vs -->
         <strong> 2.</strong> Press Start once file is selected...
         <button type="button" id="start-button">Start</button>
         <p id="processing"></p>
@@ -31,7 +31,7 @@
         <h1>Sorted Data</h1>
         <button type="button" class="collapsible">Sorted Data (High -> Low)</button>
         <div class="content">
-            <ol id="sorted-list">
+            <ol id="star-two-list">
                 <!-- Sorted groups goes here  -->
             </ol>
         </div> 
@@ -39,7 +39,7 @@
         <h1>Grouped Data</h1>
         <button type="button" class="collapsible">Grouped Data</button>
         <div class="content">
-            <ol id="grouped-list">
+            <ol id="star-one-list">
                 <!-- Grouped inputs goes here  -->
             </ol>
         </div> 
@@ -51,6 +51,6 @@
             </ol>
         </div> 
     </div>
-    <script type="text/javascript" src="./adventDay.js"></script>
+    <script type="text/javascript" src="./src/adventDay.js"></script>
 </body>
 </html>

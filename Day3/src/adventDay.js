@@ -11,7 +11,35 @@ const solution = document.getElementById('solution')
 const processing = document.getElementById('processing')
 const coll = document.getElementsByClassName('collapsible')
 
-const instructions = document.getElementsByClassName('instructions')
+// <-------------------------------------------------------------------------------->
+// 📂 Get the file!
+let file = 'Select a file with the HTML element!'
+startButton.addEventListener('click', () => {
+  processing.textContent = '⌛ Processing...'
+  file = fileInput.files[0]
+  reader.readAsText(file)
+})
+// <-------------------------------------------------------------------------------->
+reader.addEventListener('load', () => {
+  data = reader.result
+  mappedData = data.split('\n')
+  let totalFirstStarScore = 0
+  let totalSecondStarScore = 0
+  for (let i = 0; i < mappedData.length - 1; i++) {
+    const currentLine = mappedData[i]
+    const inputListItem = document.createElement('li')
+    const [firstLetter, secondLetter] = currentLine.split(' ')
+    inputListItem.textContent = `${firstLetter} ${secondLetter}`
+    inputList.appendChild(inputListItem)
+    const results = gameLoop(firstLetter, secondLetter)
+    totalFirstStarScore += results.gameStarOne
+    totalSecondStarScore += results.gameStarTwo
+  }
+  const solutionFirstStar = totalFirstStarScore
+  const solutionSecondStar = totalSecondStarScore
+  solution.textContent = `⭐ Answer 1 = ${solutionFirstStar} | ✨ Answer 2 = ${solutionSecondStar}`
+  processing.textContent = '✅ Done! (does not guarantee a correct solution)'
+})
 // <-------------------------------------------------------------------------------->
 // ⭐ Star 1
 const gameLoop = (firstLetter, secondLetter) => {
@@ -98,36 +126,6 @@ const gameLoop = (firstLetter, secondLetter) => {
   }
   return results
 }
-
-// <-------------------------------------------------------------------------------->
-// 📂 Get the file!
-let file = 'Select a file with the HTML element!'
-startButton.addEventListener('click', () => {
-  processing.textContent = '⌛ Processing...'
-  file = fileInput.files[0]
-  reader.readAsText(file)
-})
-// <-------------------------------------------------------------------------------->
-reader.addEventListener('load', () => {
-  data = reader.result
-  mappedData = data.split('\n')
-  let totalFirstStarScore = 0
-  let totalSecondStarScore = 0
-  for (let i = 0; i < mappedData.length - 1; i++) {
-    const currentLine = mappedData[i]
-    const inputListItem = document.createElement('li')
-    const [firstLetter, secondLetter] = currentLine.split(' ')
-    inputListItem.textContent = `${firstLetter} ${secondLetter}`
-    inputList.appendChild(inputListItem)
-    const results = gameLoop(firstLetter, secondLetter)
-    totalFirstStarScore += results.gameStarOne
-    totalSecondStarScore += results.gameStarTwo
-  }
-  const solutionFirstStar = totalFirstStarScore
-  const solutionSecondStar = totalSecondStarScore
-  solution.textContent = `⭐ Answer 1 = ${solutionFirstStar} | ✨ Answer 2 = ${solutionSecondStar}`
-  processing.textContent = '✅ Done! (does not guarantee a correct solution)'
-})
 // <-------------------------------------------------------------------------------->
 // 💄 Visual functions
 // 1️⃣ Adds toggle to the results data for expanding and collapsing
