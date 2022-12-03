@@ -17,23 +17,39 @@ let file = 'Select a file with the HTML element!'
 
 const scoreRockPaperScissors = (firstLetter, secondLetter) => {
   debugger
+  const letterToAction = {
+    'A': 'rock',
+    'B': 'paper',
+    'C': 'scissors',
+    'X': 'rock',
+    'Y': 'paper',
+    'Z': 'scissors'
+  }
   let score = 0;
-  let gameStateOpponent = "";
-  let gameStateYou = "";
-  switch(secondLetter) {
-      case 'X':  // Rock = 1 (for X)
-        score += 1
-        gameStateYou = "Rock"
-        break
-      case 'Y':  // Paper = 2 (for Y)
-        score += 2
-        gameStateYou = "Paper"
-        break
-      case 'Z': // Paper = 3 (for Y)
-        score += 3
-        gameStateYou = "Scissors"
-        break
+  // ❌🏗️🔮🤣 Add scored elements here, just write to the elements in this function!
+  // 🎯still want to pass back the values and the names for showcasing the data
+  const playerStateTable = {
+    'rock': 1, // Rock 1
+    'paper': 2, // Paper 2
+    'scissors': 3  // Scissors 3
+  }
+  const opponentStateTable = {
+    'A': {
+      'X': 1,
+      'Y': 2,
+      'Z': 3
+    },
+    'B': {
+      'X': 1,
+      'Y': 2,
+      'Z': 3
+    },
+    'C': {
+      'X': 1,
+      'Y': 2,
+      'Z': 3
     }
+  }
     const resultsObj = {
       score: score, 
       gameStateOpponent: gameStateOpponent, 
