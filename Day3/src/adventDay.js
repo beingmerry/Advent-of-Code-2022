@@ -20,6 +20,7 @@ startButton.addEventListener('click', () => {
   reader.readAsText(file)
 })
 // <-------------------------------------------------------------------------------->
+// 🔃 On file load do this...
 reader.addEventListener('load', () => {
   data = reader.result
   mappedData = data.split('\n')
