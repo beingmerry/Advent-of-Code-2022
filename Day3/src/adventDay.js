@@ -1,18 +1,10 @@
 const reader = new FileReader()
-
-// move all these globals to a globals.js file, clean up so that this is ONLY solution related
-// potentially split into multiple files, solution.js, global.js, visual.js
-const fileInput = document.getElementById('file-input')
-const startButton = document.getElementById('start-button')
-const inputList = document.getElementById('input-list')
-const groupedList = document.getElementById('grouped-list')
-const sortedList = document.getElementById('sorted-list')
-const solution = document.getElementById('solution')
-const processing = document.getElementById('processing')
-const coll = document.getElementsByClassName('collapsible')
-
 // <-------------------------------------------------------------------------------->
 // 📂 Get the file!
+const startButton = document.getElementById('start-button')
+const fileInput   = document.getElementById('file-input')
+const processing  = document.getElementById('processing')
+// <----------------------------->
 let file = 'Select a file with the HTML element!'
 startButton.addEventListener('click', () => {
   processing.textContent = '⌛ Processing...'
@@ -20,117 +12,83 @@ startButton.addEventListener('click', () => {
   reader.readAsText(file)
 })
 // <-------------------------------------------------------------------------------->
-// 🔃 On file load do this...
+// 📝 On file load do this...
+const inputData   = document.getElementById('list-input-data')
+const starOneList = document.getElementById('list-star-one')
+const starTwoList = document.getElementById('list-star-two')
+const solution    = document.getElementById('solution')
 reader.addEventListener('load', () => {
   data = reader.result
   mappedData = data.split('\n')
-  let totalFirstStarScore = 0
-  let totalSecondStarScore = 0
+  let starOneTotal = 0
+  let starTwoTotal = 0
+  let currentSet = []
   for (let i = 0; i < mappedData.length; i++) {
     const currentLine = mappedData[i]
-    const inputListItem = document.createElement('li')
-    const currentleLineSplit = currentLine.split('')
-    debugger
-    inputListItem.textContent = `${currentleLineSplit.join(" ")}`
-    inputList.appendChild(inputListItem)
-    // const results = gameLoop(firstLetter, secondLetter)
-    // totalFirstStarScore += results.gameStarOne
-    // totalSecondStarScore += results.gameStarTwo
+    const inputDataElement = document.createElement('li')
+    inputDataElement.textContent = `${currentLine}`
+    inputData.appendChild(inputDataElement)
+    const starOne = calculateStarOne(currentLine)
+    starOneTotal += starOne
+    const starOneElement = document.createElement('li')
+    starOneElement.textContent = `${starOneTotal}`
+    starOneList.appendChild(starOneElement)
+    // <------✨ Star 2 related logic ------>
+    currentSet.push(currentLine)  
+    if (currentSet.length === 3) {
+      const starTwo = calculateStarTwo(currentSet)
+      starTwoTotal += starTwo
+      const starTwoElement = document.createElement('li')
+      starTwoElement.textContent = `${starTwoTotal}`
+      starTwoList.appendChild(starTwoElement)
+      currentSet = []
+    }
   }
-  // const solutionFirstStar = totalFirstStarScore
-  // const solutionSecondStar = totalSecondStarScore
-  // solution.textContent = `⭐ Answer 1 = ${solutionFirstStar} | ✨ Answer 2 = ${solutionSecondStar}`
-  processing.textContent = '✅ Done! (does not guarantee a correct solution)'
+  // 🎯🟢 Solutions go here!!!
+  solution.textContent = `⭐ Answer 1 = ${starOneTotal} ( •_•)>⌐■-■\` ✨ Answer 2 = ${starTwoTotal}`
+  processing.textContent = '✅ Done! (does not guarante a correct solution)'
 })
 // <-------------------------------------------------------------------------------->
 // ⭐ Star 1
-const gameLoop = (firstLetter, secondLetter) => {
-  const letterToAction = {
-    A: 'rock',
-    B: 'paper',
-    C: 'scissors',
-    X: 'rock',
-    Y: 'paper',
-    Z: 'scissors'
-  }
-  // X means need to lose
-  // Y means need to draw
-  // Z means need to win
-  const opponentAction = letterToAction[firstLetter]
-  const playerAction = letterToAction[secondLetter]
-  // 🎯still want to pass back the values and the names for showcasing the data
-  const playerStateTable = {
-    rock: 1, // Rock 1
-    paper: 2, // Paper 2
-    scissors: 3 // Scissors 3
-  }
-
-  // <-------------------------------------------------------------------------------->
-  //Track wins vs ties vs losses, set score, AND set textContent for GroupedList
-  const gameStateTable = {
-    rock: {
-      rock: 3,
-      paper: 0,
-      scissors: 6
-    },
-    paper: {
-      rock: 6,
-      paper: 3,
-      scissors: 0
-    },
-    scissors: {
-      rock: 0,
-      paper: 6,
-      scissors: 3
+const calculateStarOne = currentLine => {
+  // 🔒 A given rucksack always has the same number of items in each of its two compartments
+  const firstHalf = currentLine.substring(0, currentLine.length / 2)
+  const secondHalf = currentLine.substring(currentLine.length / 2)
+  const frontLetters = [...firstHalf]
+  const backLetters = [...secondHalf]
+  let firstHalfLetters = {}
+  for (let i = 0; i < firstHalf.length; i++) {
+    const frontLetter = frontLetters[i]
+    firstHalfLetters = {
+      ...firstHalfLetters,
+      [frontLetter]: true
     }
   }
-  // <-------------------------------------------------------------------------------->
-  // ✨ Star 2  // Reversed points from desired to find LOSING states for player
-  const letterToPointsReverse = {
-    X: 6,
-    Y: 3,
-    Z: 0
+  let letter = ''
+  for (let i = 0; i < secondHalf.length; i++) {
+    const backLetter = backLetters[i]
+    if (firstHalfLetters[backLetter]) {
+      letter = backLetter
+    }
   }
-  const letterToPointsOriginal = {
-    X: 0,
-    Y: 3,
-    Z: 6
-  }
-  const playerScoreNeeded = letterToPointsReverse[secondLetter]
-  const opponentReversedTable = gameStateTable[opponentAction]
-  const starTwoPlayerAction = Object.keys(opponentReversedTable).find(
-    key => opponentReversedTable[key] === playerScoreNeeded
-  )
-  // ✨ Star Two Calcs
-  const starTwoActionScore = playerStateTable[starTwoPlayerAction]
-  const gameStarTwo = starTwoActionScore + letterToPointsOriginal[secondLetter]
-
-  // ⭐ Star One Calcs
-  const starOneActionScore = playerStateTable[playerAction]
-  const starOneGameScore = gameStateTable[playerAction][opponentAction]
-  const gameStarOne = starOneActionScore + starOneGameScore
-
-  const opponentVerb =
-    starOneGameScore === 0
-      ? 'beats'
-      : starOneGameScore === 3
-      ? 'tied'
-      : 'loses to'
-  const groupedItem = document.createElement('li')
-  groupedItem.textContent = `opponent ${opponentAction} ${opponentVerb} ${playerAction} | 🎅 ${starOneGameScore} game points and ${starOneActionScore} action points for you!`
-  groupedList.appendChild(groupedItem)
-  const sortedItem = document.createElement('li')
-  sortedItem.textContent = `goal is ${letterToPointsOriginal[secondLetter]} points target, you play ${starTwoPlayerAction} and they play ${opponentAction}`
-  sortedList.appendChild(sortedItem)
-  const results = {
-    gameStarOne: gameStarOne,
-    gameStarTwo: gameStarTwo
-  }
-  return results
+  const asciiCode = letter.charCodeAt(0)
+  const letterScore = asciiCode > 96 ? asciiCode - 96 : asciiCode - 38
+  return letterScore
+}
+// <-------------------------------------------------------------------------------->
+// ✨ Star 2
+const calculateStarTwo = currentSet => {
+  // 🔒 A given rucksack always has the same number of items in each of its two compartments
+  let huntOne = [...currentSet[0]].filter(letter => [...currentSet[1]].includes(letter))
+  let huntTwo = huntOne.filter(letter => [...currentSet[2]].includes(letter) )
+  const asciiCode = huntTwo[0].charCodeAt(0)
+  const letterScore = asciiCode > 96 ? asciiCode - 96 : asciiCode - 38
+  return letterScore
 }
 // <-------------------------------------------------------------------------------->
 // 💄 Visual functions
 // 1️⃣ Adds toggle to the results data for expanding and collapsing
+const coll = document.getElementsByClassName('collapsible')
 for (let i = 0; i < coll.length; i++) {
   coll[i].addEventListener('click', () => {
     coll[i].classList.toggle('active')
