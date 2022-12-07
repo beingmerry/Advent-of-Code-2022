@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
-<!--            🏗️🏗️🏗️ Not started yet! 🏗️🏗️🏗️ 1:58p -->
+
 <head>
     <link rel="stylesheet" href="./src/adventDay.css">
-    <!-- Modify to be dynamic by assigning on page load (any 2 value things...) -->
-    <title id="title"></title>
+    <title id="title"></title> <!-- inserted w/ JavaScript -->
 </head>
 
 <body>
     <header>
-        <h1 id="page-header-text"></h1>
+        <h1 id="page-header-text"></h1> <!-- inserted w/ JavaScript -->
     </header>
     <section>
         <div>
             <a href="../index.html">🏠 Home</a>
-            <a href="./README.md">❓ Day 3 Readme.md</a>
+            <a href="./readme.md">❓ Challenge Readme.md</a>
         </div>
+        <!-- 1. Need to download input and load -->
         <label><strong>1.</strong> Please select <strong>input</strong> file...</label>
-        <input type="file" id="file-input"> <!-- Could load data into local storage vs -->
+        <input type="file" id="file-input">
+        <!-- 2. Start triggers the scrip to run to process the data -->
         <strong> 2.</strong> Press Start once file is selected...
         <button type="button" id="start-button">Start</button>
         <p id="processing"></p>
@@ -27,14 +28,14 @@
         <button type="button" class="collapsible">🟢 Solution</button>
         <div class="content">
             <h2 id="solution"><!-- Solution Here  --></h2>
-        </div> 
+        </div>
         <h1>✨ Star 2 - Input Data <strong>refined</strong></h1>
         <button type="button" class="collapsible">✨ Star 2 <strong>refined</strong> Data (High -> Low)</button>
         <div class="content">
             <ol id="list-star-two">
                 <!-- Sorted groups goes here  -->
             </ol>
-        </div> 
+        </div>
 
         <h1>⭐ Star 1 - Input Data Processed</h1>
         <button type="button" class="collapsible">⭐ Star 1 Processed Data</button>
@@ -42,15 +43,16 @@
             <ol id="list-star-one">
                 <!-- Grouped inputs goes here  -->
             </ol>
-        </div> 
+        </div>
         <h1>📝 Input Data</h1>
         <button type="button" class="collapsible">📝 Raw Input Data</button>
         <div class="content">
             <ol id="list-input-data">
                 <!-- Raw input goes here  -->
             </ol>
-        </div> 
+        </div>
     </div>
     <script type="text/javascript" src="./src/adventDay.js"></script>
 </body>
+
 </html>
