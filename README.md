@@ -12,14 +12,38 @@ My attempt at doing all the challenges in the advent of code 2022
 | Stats       | Value                 |
 | :---------: | :-----------:         |
 | 🎯 Started  | 2022-12-02 00:22 ET   |
-| ✅ Finished | 2022-12-02 ??:?? ET   |
+| ✅ Finished | 2022-12-02 15:25 ET   |
+| ⭐ Star 1   | ✅ Yes, 2022-12-02 15:25 ET  | 
+| ✨ Star 2   | ✅ Yes, 2022-12-02 15:45 ET  |
+
+## Day 3: Rucksack Reorganization
+| Stats       | Value                 |
+| :---------: | :-----------:         |
+| 🎯 Started  | 2022-12-03 13:22 ET   |
+| ✅ Finished | 2022-12-06 ??:?? ET   |
 | ⭐ Star 1   | ❌ No  | 
 | ✨ Star 2   | ❌ No  |
 
-## Day 3: ....
+## Day 4: ...
 | Stats       | Value                 |
 | :---------: | :-----------:         |
-| 🎯 Started  | 2022-12-02 00:22 ET   |
-| ✅ Finished | 2022-12-02 ??:?? ET   |
+| 🎯 Started  | 2022-12-xx 13:22 ET   |
+| ✅ Finished | 2022-12-xx ??:?? ET   |
+| ⭐ Star 1   | ❌ No  | 
+| ✨ Star 2   | ❌ No  |
+
+## Day 5: ...
+| Stats       | Value                 |
+| :---------: | :-----------:         |
+| 🎯 Started  | 2022-12-xx 13:22 ET   |
+| ✅ Finished | 2022-12-xx ??:?? ET   |
+| ⭐ Star 1   | ❌ No  | 
+| ✨ Star 2   | ❌ No  |
+
+## Day 6: ..
+| Stats       | Value                 |
+| :---------: | :-----------:         |
+| 🎯 Started  | 2022-12-03 13:22 ET   |
+| ✅ Finished | 2022-12-xx ??:?? ET   |
 | ⭐ Star 1   | ❌ No  | 
 | ✨ Star 2   | ❌ No  |
