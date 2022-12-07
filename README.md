@@ -21,8 +21,8 @@ My attempt at doing all the challenges in the advent of code 2022
 | :---------: | :-----------:         |
 | 🎯 Started  | 2022-12-03 13:22 ET   |
 | ✅ Finished | 2022-12-06 ??:?? ET   |
-| ⭐ Star 1   | ❌ No  | 
-| ✨ Star 2   | ❌ No  |
+| ⭐ Star 1   | ✅ Yes, 2022-12-06 20:25 ET  | 
+| ✨ Star 2   | ✅ Yes, 2022-12-06 23:15 ET  |
 
 ## Day 4: ...
 | Stats       | Value                 |
