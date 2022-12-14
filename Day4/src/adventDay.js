@@ -1,3 +1,4 @@
+// 🌎 Globals to change for each challenge
 const title = document.querySelector('title');
 const headerText = document.querySelector('#page-header-text');
 const titleText = "Day 4 - Camp Cleanup"
